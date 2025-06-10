@@ -29,12 +29,16 @@
     }
     iframe {
       width: 100%;
+      max-width: 1000px;
       height: 600px;
       border: 1px solid #ccc;
       margin-top: 20px;
     }
-    .hidden {
+    .challenge {
       display: none;
+    }
+    .challenge.active {
+      display: block;
     }
   </style>
 </head>
@@ -44,5 +48,23 @@
   <button class="btn" onclick="showChallenge('challenge1')">Challenge 1</button>
   <button class="btn" onclick="showChallenge('challenge2')">Challenge 2</button>
 
-  <div id="challenge1" class="challenge">
+  <div id="challenge1" class="challenge active">
     <h2>Challenge 1</h2>
+    <iframe src="https://aa-5m0w.onrender.com/" allowfullscreen></iframe>
+  </div>
+
+  <div id="challenge2" class="challenge">
+    <h2>Challenge 2</h2>
+    <iframe src="https://dddd-ixbg.onrender.com/" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function showChallenge(id) {
+      const challenges = document.querySelectorAll('.challenge');
+      challenges.forEach(ch => ch.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
