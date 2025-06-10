@@ -3,68 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All Challenges</title>
+  <title>Challenge Redirect</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
       text-align: center;
-      padding: 2rem;
+      padding: 50px;
     }
     h1 {
       color: #333;
     }
     .btn {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #007bff;
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      background-color: #dc3545;
       color: white;
-      border: none;
-      border-radius: 4px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
     .btn:hover {
-      background-color: #0056b3;
-    }
-    iframe {
-      width: 100%;
-      max-width: 1000px;
-      height: 600px;
-      border: 1px solid #ccc;
-      margin-top: 20px;
-    }
-    .challenge {
-      display: none;
-    }
-    .challenge.active {
-      display: block;
+      background-color: #c82333;
     }
   </style>
 </head>
 <body>
 
-  <h1>Challenge Viewer</h1>
-  <button class="btn" onclick="showChallenge('challenge1')">Challenge 1</button>
-  <button class="btn" onclick="showChallenge('challenge2')">Challenge 2</button>
+  <h1>Choose a Challenge</h1>
 
-  <div id="challenge1" class="challenge active">
-    <h2>Challenge 1</h2>
-    <iframe src="https://aa-5m0w.onrender.com/" allowfullscreen></iframe>
-  </div>
-
-  <div id="challenge2" class="challenge">
-    <h2>Challenge 2</h2>
-    <iframe src="https://dddd-ixbg.onrender.com/" allowfullscreen></iframe>
-  </div>
-
-  <script>
-    function showChallenge(id) {
-      const challenges = document.querySelectorAll('.challenge');
-      challenges.forEach(ch => ch.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+  <a href="https://aa-5m0w.onrender.com/" class="btn" target="_blank">Challenge 1</a>
+  <a href="https://dddd-ixbg.onrender.com/" class="btn" target="_blank">Challenge 2</a>
 
 </body>
 </html>
