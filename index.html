@@ -3,39 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Challenge Redirect</title>
+  <title>CTF Suspense</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+      margin-bottom: 30px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #0f0;
+    }
+    #message {
+      white-space: pre-wrap;
+      font-size: 1.2rem;
       text-align: center;
-      padding: 50px;
+      max-width: 800px;
     }
-    h1 {
-      color: #333;
+    .blink {
+      animation: blink 1s steps(1) infinite;
     }
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      margin: 20px;
-      font-size: 18px;
-      text-decoration: none;
-      background-color: #dc3545;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #c82333;
+    @keyframes blink {
+      50% { opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Choose a Challenge</h1>
+  <img src="fff.jpeg" alt="CTF Clue Image" />
+  <div id="message"></div>
 
-  <a href="https://aa-5m0w.onrender.com/" class="btn" target="_blank">Challenge 1</a>
-  <a href="https://dddd-ixbg.onrender.com/" class="btn" target="_blank">Challenge 2</a>
+  <script>
+    const suspenseText = 
+`WAIT...
 
+To be continued...
+
+The CTF will resume at 12:00 PM on 11th June.
+
+Wait... There are SPECIAL PRIZES...
+
+Hold your suspense.`;
+
+    const messageBox = document.getElementById('message');
+    let index = 0;
+
+    function typeMessage() {
+      if (index < suspenseText.length) {
+        messageBox.innerHTML += suspenseText.charAt(index);
+        index++;
+        setTimeout(typeMessage, 50); // typing speed
+      } else {
+        messageBox.innerHTML += ' <span class="blink">|</span>';
+      }
+    }
+
+    window.onload = typeMessage;
+  </script>
 </body>
 </html>
